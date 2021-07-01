@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     root: {
       display: 'block',
       width: '33%',
-      height:'350px',
+      height:'40vh',
       margin:'0px 20px',
       justifyContent: 'space-between',
       border:'2px solid black',

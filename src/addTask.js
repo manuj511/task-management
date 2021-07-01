@@ -6,11 +6,12 @@ import { Paper, Typography,Grid,Button,TextField } from '@material-ui/core';
 const useStyles = makeStyles(() => ({
     paperStyle: {
 		padding: 20,
-		height: '25vh',
+		height: '30vh',
 		width: 350,
-		margin: '20px auto',
+		margin: '5px auto',
 		backgroundColor: '#3f51b5',
-		color: 'white'
+		color: 'white',
+        zIndex: 99,
 	},
     textFieldStyle: { marginLeft: '-1px', backgroundColor: '#fff' },
 	buttonStyle: { marginTop: '10px', marginBottom: '5px', borderRadius: '0px' },
