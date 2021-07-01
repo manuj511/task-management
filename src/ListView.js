@@ -21,14 +21,16 @@ const useStyles = makeStyles({
         
     },
     emptyListText:{
-        margin:'0% 30%',
+        position:'relative',
+        left:'30%',
+        display: 'inline-block',
     },
     boxStyle:{
         backgroundColor:'#3f51b5',
         width:'100%'
-    }
+    },
   });
-
+// this component renders each list {todo,progress,done}
 export const ListView = (props)=>{
     const classes=useStyles();
     const {listName,listItems,listLabels,moveHandler}=props;
@@ -40,7 +42,7 @@ export const ListView = (props)=>{
                 {listName}
             </Typography>
             </Box><br/>
-            <Box>
+            <Box >
                 {
                    (listItems.length!==0) ? listItems.map((listItem)=>{
                         return <TaskCard lists={listLabels} currentListName={listName} listTask={listItem} moveHandler={moveHandler}/>

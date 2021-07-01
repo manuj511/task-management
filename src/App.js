@@ -4,7 +4,6 @@ import Header from './header';
 import Footer from './footer';
 import TaskManagement from './TaskManagement';
 
-
 const useStyles = makeStyles({
   root: {
     backgroundColor:'#959fbbc7',

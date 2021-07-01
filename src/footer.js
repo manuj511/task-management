@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(() => ({
   root: {
-    position:'absolute',
+    position:'fixed',
     bottom:'0px',
     width:'100%',
   },
@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     justifyContent:'space-between',
   },
 }));
-
+// component to render Footer Section
 export const Footer=()=> {
   const classes = useStyles();
 

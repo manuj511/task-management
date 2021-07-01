@@ -22,7 +22,7 @@ const useStyles = makeStyles({
       color:'#0c0c1abf'
   }
 });
-
+// this component renders a card for the task item
 export const TaskCard=(props)=> {
   const {lists,currentListName,listTask,moveHandler}=props;
   const {title,description} = listTask;

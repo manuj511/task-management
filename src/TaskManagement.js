@@ -9,11 +9,13 @@ const useStyles = makeStyles({
       display: 'flex',
     },
   });
+
+// this component renders the three lists 
 export const TaskManagement=()=>{
     const classes=useStyles();
     const [items,setItems]=useState({todo:[],progress:[],done:[]});
     const list=['todo','progress','done'];
-
+    // callback function to add new items to the list
     const addNewTask=(task)=>{
         const newTask = task ? task : null;
         const todoItems = items.todo;
@@ -24,12 +26,14 @@ export const TaskManagement=()=>{
         };
         setItems(updatedItems);
     }
-
+    // common functionality to move items to either lists
     const handleTaskMove = (src,dest,item)=>{
         let srcList=items[src];
         let destList=items[dest];
+        // modify sourcelist to remove the moved item
         const newSrcList = srcList.filter((it)=>!isEqual(it,item));
         const newDestList = destList;
+        // modify destination list to add the moved item
         newDestList.push(item)
         let updatedItems={...items};
         updatedItems[src]=newSrcList;
@@ -39,9 +43,11 @@ export const TaskManagement=()=>{
     return(
         <>
         <div className={classes.root}>
-            <ListView listLabels={list} listName={list[0]} listItems={items.todo} moveHandler={handleTaskMove}/>
-            <ListView listLabels={list} listName={list[1]} listItems={items.progress} moveHandler={handleTaskMove}/>
-            <ListView listLabels={list} listName={list[2]} listItems={items.done} moveHandler={handleTaskMove}/>
+            {
+                list.map((listInstance)=>{
+                    return <ListView listLabels={list} listName={listInstance} listItems={items[listInstance]} moveHandler={handleTaskMove}/>;
+                })
+            }
         </div>
         <AddTask addNewTask={addNewTask}/>
     </>

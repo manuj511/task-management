@@ -16,14 +16,16 @@ const useStyles = makeStyles(() => ({
 	buttonStyle: { marginTop: '10px', marginBottom: '5px', borderRadius: '0px' },
     labelStyle:{
         textDecoration:'bold',
-    }
+    },
   }));
 
 export const AddTask = (props)=>{
     const classes = useStyles();
     const {addNewTask}=props;
+    // newTask will hold the new item details to be added into the list
     const [newTask,setNewTask]=useState({title:'',description:''});
 
+    // function to handle the addition of new tasks into the todo List
     const handleNewTask = (e)=>{
         e.preventDefault();
         addNewTask(newTask);
@@ -61,12 +63,14 @@ export const AddTask = (props)=>{
 								fullWidth
 								required
 							/>
+                            {/* Button will be disabled if the fields are not filled */}
 							<Button
 								type="submit"
 								variant="contained"
 								onClick={(e)=>handleNewTask(e)}
 								fullWidth
 								className={classes.buttonStyle}
+                                disabled={newTask.title === '' || newTask.description===''}
 							>
 								Add Task
 							</Button>
